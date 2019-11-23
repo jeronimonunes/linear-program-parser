@@ -8,6 +8,14 @@ export class Fpi {
 
     }
 
+    toMatrix() {
+        const c = this.vars.map(v => this.objective.getCoefficient(v).multiply(NEG));
+        const a = this.restrictions.map(r => this.vars.map(v => r.getCoefficient(v)));
+        const b = this.restrictions.map(r => r.getIndependent());
+        const vars = this.vars;
+        return { a, b, c, vars };
+    }
+
     toString() {
         let result = `max(${this.objective})\n`;
         result += `\tst:\n`;
