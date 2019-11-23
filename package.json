@@ -1,6 +1,6 @@
 {
   "name": "linear-program-parser",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Library to parse a Linear Program text",
   "main": "dist/index.js",
   "scripts": {
