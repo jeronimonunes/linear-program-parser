@@ -57,8 +57,8 @@ Division = head:Factor tail:(_ "/" _ Factor)* {
 }
 
 Factor = "(" _ expr:Expression _ ")" { return new exports.Factor(expr); }
-  / n:Integer? v:Id { return new exports.Variable(n || ONE, v)}
-  / "-" v:Id { return new exports.Variable(NEG, v)}
+  / n:Integer? v:Id { return new exports.Variable(n || exports.ONE, v)}
+  / "-" v:Id { return new exports.Variable(exports.NEG, v)}
   / Integer
 
 Integer "integer"
