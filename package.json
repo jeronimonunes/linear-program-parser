@@ -1,0 +1,27 @@
+{
+  "name": "linear-program-parser",
+  "version": "1.0.0",
+  "description": "Library to parse a Linear Program text",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && pegjs -o ./dist/parser.js ./src/lang.pegjs && cp ./src/parser.d.ts ./dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeronimonunes/linear-program-parser.git"
+  },
+  "author": "Jerônimo Nunes Rocha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeronimonunes/linear-program-parser/issues"
+  },
+  "homepage": "https://github.com/jeronimonunes/linear-program-parser#readme",
+  "devDependencies": {
+    "@types/node": "^12.12.12",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@types/pegjs": "^0.10.1",
+    "pegjs": "^0.10.0"
+  }
+}
