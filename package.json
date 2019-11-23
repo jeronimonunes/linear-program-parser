@@ -4,7 +4,7 @@
   "description": "Library to parse a Linear Program text",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc && pegjs -o ./dist/parser.js ./src/lang.pegjs && node build.js"
+    "build": "tsc && node build.js"
   },
   "repository": {
     "type": "git",

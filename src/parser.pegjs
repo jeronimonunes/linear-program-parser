@@ -1,5 +1,5 @@
 ProgLin = _ type:("max"/"min") _ '(' _ objective:Expression _ ')' _ restrictions:Restrictions {
-    return new ProgLin(type, objective, restrictions);
+    return new exports.ProgLin(type, objective, restrictions);
 }
 
 Expression = Addition
@@ -11,19 +11,19 @@ Restrictions = ("st:"/"sujeito a:") _ restrictions:(Restriction ';'? _)+ {
 Restriction = left:Expression _ type:(">="/"<="/"=="/"=") _ right:Expression {
     switch(type) {
         case ">=":
-            return new Greater(left, right);
+            return new exports.Greater(left, right);
         case "<=":
-            return new Smaller(left, right);
+            return new exports.Smaller(left, right);
         case "=":
         case "==":
-            return new Equality(left, right);
+            return new exports.Equality(left, right);
     }
 }
 
 Addition = head:Subtraction tail:(_ "+" _ Subtraction)* {
     if(tail.length) {
         const terms = [head,...tail.map(el=>el[3])];
-        return new Addition(terms);
+        return new exports.Addition(terms);
     } else {
         return head;
     }
@@ -32,7 +32,7 @@ Addition = head:Subtraction tail:(_ "+" _ Subtraction)* {
 Subtraction = head:Multiplication tail:(_ "-" _ Multiplication)* {
     if(tail.length) {
         const terms = [head,...tail.map(el=>el[3])];
-        return new Subtraction(terms);
+        return new exports.Subtraction(terms);
     } else {
         return head;
     }
@@ -41,7 +41,7 @@ Subtraction = head:Multiplication tail:(_ "-" _ Multiplication)* {
 Multiplication = head:Division tail:(_ "*" _ Division)* {
     if(tail.length) {
         const terms = [head,...tail.map(el=>el[3])];
-        return new Multiplication(terms);
+        return new exports.Multiplication(terms);
     } else {
         return head;
     }
@@ -50,19 +50,19 @@ Multiplication = head:Division tail:(_ "*" _ Division)* {
 Division = head:Factor tail:(_ "/" _ Factor)* {
     if(tail.length) {
         const terms = [head,...tail.map(el=>el[3])];
-        return new Division(terms);
+        return new exports.Division(terms);
     } else {
         return head;
     }
 }
 
-Factor = "(" _ expr:Expression _ ")" { return new Factor(expr); }
-  / n:Integer? v:Id { return new Variable(n || ONE, v)}
-  / "-" v:Id { return new Variable(NEG, v)}
+Factor = "(" _ expr:Expression _ ")" { return new exports.Factor(expr); }
+  / n:Integer? v:Id { return new exports.Variable(n || ONE, v)}
+  / "-" v:Id { return new exports.Variable(NEG, v)}
   / Integer
 
 Integer "integer"
-  = _ [+-]?[0-9]+ { return new Fraction(BigInt(text()), BigInt(1)) }
+  = _ [+-]?[0-9]+ { return new exports.Fraction(BigInt(text()), BigInt(1)) }
 
 Id = [a-zA-Z][a-zA-Z0-9]* {
     return text()
