@@ -9,7 +9,7 @@ import { Equality } from './equality';
 import { Expression } from './expression';
 import { Factor } from './factor';
 import { Fpi } from './fpi';
-import { Fraction } from './fraction';
+import { Fraction, NEG, ONE, ZERO } from './fraction';
 import { Greater } from './greater';
 import { Multiplication } from './multiplication';
 import { ProgLin, ProgLinType } from './prog-lin';
@@ -30,7 +30,7 @@ export {
     Expression,
     Factor,
     Fpi,
-    Fraction,
+    Fraction, NEG, ONE, ZERO,
     Greater,
     Multiplication,
     ProgLin, ProgLinType,
