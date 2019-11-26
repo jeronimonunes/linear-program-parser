@@ -1,3 +1,11 @@
+{
+    if (typeof (BigInt) === undefined) {
+       BigInt = function(v) {
+           return parseInt(v, 10);
+       }
+    }
+}
+
 ProgLin = _ type:("max"/"min") _ '(' _ objective:Expression _ ')' _ restrictions:Restrictions {
     return new exports.ProgLin(type, objective, restrictions);
 }
