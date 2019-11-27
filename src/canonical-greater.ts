@@ -5,7 +5,7 @@ import { CanonicalEquality } from './canonical-equality';
 
 export class CanonicalGreater extends CanonicalRestriction {
 
-    constructor(private left: Variable[], private right: Fraction) {
+    constructor(public left: Variable[], public right: Fraction) {
         super();
     }
 

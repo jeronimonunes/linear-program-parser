@@ -7,7 +7,7 @@ import { CanonicalSmaller } from './canonical-smaller';
 
 export class Smaller extends Restriction {
 
-    constructor(private left: Expression, private right: Expression) {
+    constructor(public left: Expression, public right: Expression) {
         super();
     }
 

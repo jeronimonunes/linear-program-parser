@@ -4,7 +4,7 @@ import { NEG } from './fraction';
 
 export class Fpi {
 
-    constructor(private objective: CanonicalAddition, private restrictions: CanonicalEquality[], private vars: string[]) {
+    constructor(public objective: CanonicalAddition, public restrictions: CanonicalEquality[], public vars: string[]) {
 
     }
 

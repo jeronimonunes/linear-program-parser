@@ -7,7 +7,7 @@ import { Variable } from './variable';
 
 export class Equality extends Restriction {
 
-    constructor(private left: Expression, private right: Expression) {
+    constructor(public left: Expression, public right: Expression) {
         super();
     }
 

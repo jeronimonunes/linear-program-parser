@@ -4,7 +4,7 @@ import { Fraction, ZERO } from './fraction';
 
 export class CanonicalEquality extends CanonicalRestriction {
 
-    constructor(private left: Variable[], private right: Fraction) {
+    constructor(public left: Variable[], public right: Fraction) {
         super();
     }
 

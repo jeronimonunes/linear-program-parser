@@ -6,7 +6,7 @@ import { CanonicalAddition } from './canonical-addition';
 
 export class Addition extends Expression {
 
-    constructor(private terms: Expression[]) {
+    constructor(public terms: Expression[]) {
         super();
     }
 
@@ -47,8 +47,6 @@ export class Addition extends Expression {
                     return v.multiply(canon);
                 } else if (canon instanceof Variable) {
                     throw Error('In linear progarmming you can\'t have two variables multiplying each other');
-                } else if (canon instanceof Addition) {
-                    return canon.multiply(v);
                 } else if (canon instanceof CanonicalAddition) {
                     if (canon.terms.length === 0) {
                         return v.multiply(canon.independent);

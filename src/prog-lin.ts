@@ -15,9 +15,9 @@ export type ProgLinType = 'min' | 'max';
 export class ProgLin {
 
     constructor(
-        private type: ProgLinType,
-        private objective: Expression,
-        private restrictions: Restriction[]) {
+        public type: ProgLinType,
+        public objective: Expression,
+        public restrictions: Restriction[]) {
     }
 
     toFPI() {

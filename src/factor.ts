@@ -2,7 +2,7 @@ import { Expression } from './expression';
 
 export class Factor extends Expression {
 
-    constructor(private expr: Expression) {
+    constructor(public expr: Expression) {
         super();
     }
 

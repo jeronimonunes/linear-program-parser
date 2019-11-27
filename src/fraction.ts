@@ -8,7 +8,7 @@ if (typeof (BigInt) === 'undefined') {
 
 export class Fraction extends Expression {
 
-    constructor(private numerator: bigint, private denominator: bigint) {
+    constructor(public numerator: bigint, public denominator: bigint) {
         super();
     }
 

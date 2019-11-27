@@ -3,7 +3,7 @@ import { Multiplication } from './multiplication';
 
 export class Division extends Expression {
 
-    constructor(private terms: Expression[]) {
+    constructor(public terms: Expression[]) {
         super();
     }
 
