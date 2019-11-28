@@ -6,10 +6,36 @@ if (typeof (BigInt) === 'undefined') {
     BigInt = Number as any;
 }
 
+const bigZero = BigInt(0);
+const bigOne = BigInt(1);
+const bigNeg = BigInt(-1);
+
+function gcd(a: bigint, b: bigint): bigint {
+    if (b === bigZero)
+        return a;
+    return gcd(b, a % b);
+}
+
 export class Fraction extends Expression {
 
-    constructor(public numerator: bigint, public denominator: bigint) {
+    public numerator: bigint;
+    public denominator: bigint;
+
+    constructor(numerator: bigint, denominator: bigint) {
         super();
+        if (numerator === bigZero) {
+            this.numerator = bigZero;
+            this.denominator = bigOne;
+        }
+        else {
+            if (denominator < bigZero) {
+                numerator *= bigNeg;
+                denominator *= bigNeg;
+            }
+            const gcdv = gcd(numerator, denominator);
+            this.numerator = numerator / gcdv;
+            this.denominator = denominator / gcdv;
+        }
     }
 
     isZero() {
