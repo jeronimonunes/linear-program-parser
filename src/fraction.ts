@@ -28,13 +28,13 @@ export class Fraction extends Expression {
             this.denominator = bigOne;
         }
         else {
-            if (denominator < bigZero) {
-                numerator *= bigNeg;
-                denominator *= bigNeg;
-            }
             const gcdv = gcd(numerator, denominator);
             this.numerator = numerator / gcdv;
             this.denominator = denominator / gcdv;
+            if (this.denominator < bigZero) {
+                this.numerator *= bigNeg;
+                this.denominator *= bigNeg;
+            }
         }
     }
 
